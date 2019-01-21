@@ -2,11 +2,13 @@ class Driver:
 
     startingNumber = 0
 
+
     # CONSTRUCTOR with INSTANCE VARIABLES
     def __init__(self, firstName, lastName, startingNumber):
         self.firstName = firstName
         self.lastName = lastName
         self.startingNumber = startingNumber
+
 
     # GETTER-METHODS
     def get_firstName(self):
@@ -18,12 +20,10 @@ class Driver:
     def get_startingNumber(self):
         return self.startingNumber
 
-    # "(" + startingNumber + ") " + self.get_firstName() + " " + self.get_lastName()
 
     # @Override-METHOD
     def __str__(self) -> str:
         result = "(" + str(self.get_startingNumber()) + ") " + self.get_firstName() + " " + self.get_lastName()
-
         return result
 
 
