@@ -8,46 +8,46 @@ class EngineType(Enum):
 
 
 class Vehicle:
+    manufacturer: str
+    model_name: str
+    engine_type: EngineType
+    horsepower: int
 
-    # Wo müssen type hints plaziert werden?
-    firstName: str
-
-    # CONSTRUCTOR with INSTANCE VARIABLES
-    def __init__(self, manufacturer, modelName, horsepower, engineType):
+    def __init__(self, manufacturer, model_name, horsepower, engine_type: EngineType):
         self.manufacturer = manufacturer
-        self.modelName = modelName
+        self.model_name = model_name
         self.horsepower = horsepower
-        self.engineType = engineType
+        self.engine_type = engine_type
 
-
-    # GETTER-METHODS
-    def get_manufacturer(self):
-        return self.manufacturer
-
-    def get_modelName(self):
-        return self.modelName
-
-    def get_horsepower(self):
-        return self.horsepower
-
-    def get_engineType(self):
-        return self.engineType
-
-    # @Override-METHOD
     def __str__(self):
-        return self.get_manufacturer() + " " + self.get_modelName() + ", " + self.get_engineType() + ", " + str(self.get_horsepower()) + "hsp."
+        return f"{self.manufacturer} {self.model_name}, {self.horsepower}hsp, {self.engine_type.name}."
+
 
 if __name__ == '__main__':
-    dodgeCharger = Vehicle("Dodge", "Charger", 478, "gasoline")
-    print(dodgeCharger.get_manufacturer())
-    print(dodgeCharger.get_modelName())
-    print(dodgeCharger.get_horsepower())
-    print(dodgeCharger.get_engineType())
+    dodge_charger = Vehicle("Dodge", "Charger", 478, EngineType.diesel)
 
-    print("Dieses Fahrzueg ist ein: " + dodgeCharger.manufacturer + " " + dodgeCharger.modelName + ".")
+    print(dodge_charger.manufacturer)
+    print(dodge_charger.model_name)
+    print(dodge_charger.horsepower)
+    print(dodge_charger.engine_type)
+    print(dodge_charger.engine_type.name)
 
-    print(dodgeCharger)
+    print(f"Dieses Fahrzeug ist ein: {dodge_charger.manufacturer} {dodge_charger.model_name}.")
 
+    print(dodge_charger)
+
+"""
+### Exercise 12 - Racing game with different vehicles
+
+Implement different types of vehicle.
+ 
+ 1. Derive different types of vehicles from the base class `Vehicle`, like a _motorcycle_ or a _trike_.
+ 2. Add specific attributes to each of the new derived classes.
+ 4. Add get methods for the new attributes
+ 5. Enhance toString() method with the new attributes 
+ 3. Visualize created classes with plantuml as class diagram, inclusive associations.
+ 
+"""
 
 """
 ### Exercise 11 - Racing game base classes

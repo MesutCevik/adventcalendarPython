@@ -1,42 +1,26 @@
 class Driver:
+    starting_number: int = 0
+    first_name: str = ""
+    last_name: str = ""
 
-    startingNumber = 0
+    def __init__(self, first_name: str, last_name: str, starting_number: int):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.starting_number = starting_number
 
-
-    # CONSTRUCTOR with INSTANCE VARIABLES
-    def __init__(self, firstName, lastName, startingNumber):
-        self.firstName = firstName
-        self.lastName = lastName
-        self.startingNumber = startingNumber
-
-
-    # GETTER-METHODS
-    def get_firstName(self):
-        return self.firstName
-
-    def get_lastName(self):
-        return self.lastName
-
-    def get_startingNumber(self):
-        return self.startingNumber
-
-
-    # @Override-METHOD
     def __str__(self) -> str:
-        result = "(" + str(self.get_startingNumber()) + ") " + self.get_firstName() + " " + self.get_lastName()
-        return result
-
+        return f"({self.starting_number}) {self.first_name} {self.last_name}"
 
 
 if __name__ == '__main__':
-    michailGorbatschow = Driver("Michail", "Gorbatschow", 0)
-    print(michailGorbatschow.get_firstName())
-    print(michailGorbatschow.get_lastName())
-    print(michailGorbatschow.get_startingNumber())
-    print(michailGorbatschow)
+    michail_gorbatschow = Driver("Michail", "Gorbatschow", 0)
+    print(michail_gorbatschow.first_name)
+    print(michail_gorbatschow.last_name)
+    print(michail_gorbatschow.starting_number)
 
-    print(michailGorbatschow.firstName + " " + michailGorbatschow.lastName)
+    print(michail_gorbatschow)
 
+    print(F"{michail_gorbatschow.first_name} {michail_gorbatschow.last_name}")
 
 """
 ### Exercise 11 - Racing game base classes
