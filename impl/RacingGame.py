@@ -1,4 +1,5 @@
 from impl import Competitor
+from impl.CompetitorsGenerator import CompetitorsGenerator
 from impl.Motorcycle import Motorcycle, MotorcycleType
 from impl.Trike import TrikeType, Trike
 from impl.Vehicle import Vehicle, EngineType
@@ -15,8 +16,9 @@ class RacingGame:
         trike = Trike("Harley Davidson", "EasyRider", 98, EngineType.diesel, TrikeType.Three_Seater)
         print(f"Trike: {trike}")
 
-        ronald_reagan = Competitor()
-
+        gc = CompetitorsGenerator()
+        c = gc.get_random_competitor()
+        print(f"C: {c}")
 
 
 if __name__ == '__main__':
