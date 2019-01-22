@@ -22,7 +22,7 @@ class CompetitorsGenerator:
 
     def get_random_vehicle(self):
         vehicle_manufacturer: List[str] = ["Dodge", "Ford", "Porsche", "Mercedes"]
-        vehicle_model_name: List[str] = ["Challenger", "GT20", "CarreraGT4", "Silberpfeil"]
+        vehicle_model_name: List[str] = ["Challenger", "GT20", "Carrera_GT4", "Silberpfeil"]
         vehicle_horsepower: List[int] = [379, 400, 323, 395]
 
         random_vehicle_manufacturer = random.choice(vehicle_manufacturer)

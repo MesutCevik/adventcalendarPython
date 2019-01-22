@@ -18,7 +18,7 @@ class RacingGame:
 
         gc = CompetitorsGenerator()
         c = gc.get_random_competitor()
-        print(f"C: {c}")
+        print(f"Competitor: {c}")
 
 
 if __name__ == '__main__':
