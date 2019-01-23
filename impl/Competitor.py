@@ -18,4 +18,8 @@ class Competitor:
         self.points += points_from_race
 
     def __str__(self) -> str:
-        return f"Points: {self.points}; Driver: {self.driver.first_name} {self.driver.last_name}; Vehicle: {self.vehicle.manufacturer} {self.vehicle.model_name}"
+        # return f"Points: {self.points}; Driver: {self.driver.first_name} {self.driver.last_name}; Vehicle: {self.vehicle.manufacturer} {self.vehicle.model_name}"
+        return f"({self.points}) {self.driver.first_name} {self.driver.last_name}"
+
+    def __repr__(self):
+        return str(self)

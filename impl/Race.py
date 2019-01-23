@@ -5,19 +5,18 @@ from impl import CompetitorsList, Driver, Vehicle, Competitor
 
 
 class Race:
-    mesutsCompetitorListVariable: CompetitorsList
+    mesutsCompetitorListVariable: List['Competitor']
     starting_lineup: List['Competitor'] = []
     race_result: List['Competitor'] = []
 
-    def __init__(self, competitors: CompetitorsList):
+    def __init__(self, competitors: List['Competitor']):
         self.mesutsCompetitorListVariable = competitors
 
     def race(self) -> None:
-        self.race_result = self.starting_lineup
+        self.race_result = list(self.starting_lineup)
         shuffle(self.race_result)
 
-        places = self.race_result
-        for place, _ in enumerate(places, start=0):
+        for place, _ in enumerate(self.race_result, start=0):
             if place == 0:
                 points = (len(self.race_result) - place + 1) * 2
             else:
@@ -25,10 +24,11 @@ class Race:
 
             self.race_result[place].add_points(points)
 
-        self.starting_lineup = self.race_result
+        self.starting_lineup = list(self.race_result)
 
     def generate_starting_lineup(self) -> List['Competitor']:
-        for competitor in self.mesutsCompetitorListVariable.competitors:  # Nehme jedes Element in einer Liste competitor.
+        self.starting_lineup = []
+        for competitor in self.mesutsCompetitorListVariable:  # Nehme jedes Element in einer Liste competitor.
             self.starting_lineup.append(competitor)
 
         return self.starting_lineup
