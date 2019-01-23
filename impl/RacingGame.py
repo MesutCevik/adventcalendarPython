@@ -1,5 +1,6 @@
 from impl import Competitor
 from impl.CompetitorsGenerator import CompetitorsGenerator
+from impl.CompetitorsList import CompetitorsList
 from impl.Motorcycle import Motorcycle, MotorcycleType
 from impl.Trike import TrikeType, Trike
 from impl.Vehicle import Vehicle, EngineType
@@ -19,6 +20,13 @@ class RacingGame:
         gc = CompetitorsGenerator()
         c = gc.get_random_competitor()
         print(f"Competitor: {c}")
+
+        my_list = CompetitorsList()
+        my_list.add_competitor(c)
+        my_list.add_competitor(c)
+        my_list.add_competitor(c)
+        my_list.add_competitor(c)
+        my_list.add_competitor(c)
 
 
 if __name__ == '__main__':
