@@ -11,10 +11,10 @@ class Competitor:
         self.vehicle = vehicle
         self.points = points
 
-    def get_points(self):
+    def get_points(self) -> str:
         return f"Points: {self.points}"
 
-    def add_points(self, points_from_race: int):
+    def add_points(self, points_from_race: int) -> None:
         self.points += points_from_race
 
     def __str__(self) -> str:

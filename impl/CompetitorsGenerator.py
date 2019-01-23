@@ -9,7 +9,7 @@ from impl.Driver import Driver
 class CompetitorsGenerator:
     starting_number: int = 0
 
-    def get_random_driver(self) -> Driver:
+    def _get_random_driver(self) -> Driver:
         driver_firstnames: List[str] = ["Michael", "Niki", "Fernando", "Lewis", "Alain"]
         driver_lastnames: List[str] = ["Schumacher", "Lauda", "Alonso", "Hamilton", "Prost"]
 
@@ -20,7 +20,7 @@ class CompetitorsGenerator:
 
         return Driver(random_driver_firstname, random_driver_lastname, self.starting_number)
 
-    def get_random_vehicle(self):
+    def _get_random_vehicle(self) -> Vehicle:
         vehicle_manufacturer: List[str] = ["Dodge", "Ford", "Porsche", "Mercedes"]
         vehicle_model_name: List[str] = ["Challenger", "GT20", "Carrera_GT4", "Silberpfeil"]
         vehicle_horsepower: List[int] = [379, 400, 323, 395]
@@ -33,8 +33,8 @@ class CompetitorsGenerator:
         return Vehicle(random_vehicle_manufacturer, random_vehicle_model_name, random_vehicle_horsepower,
                        random_vehicle_enginge_type)
 
-    def get_random_competitor(self):
-        driver: Driver = self.get_random_driver()
-        vehicle: Vehicle = self.get_random_vehicle()
+    def get_random_competitor(self) -> Competitor:
+        driver: Driver = self._get_random_driver()
+        vehicle: Vehicle = self._get_random_vehicle()
 
         return Competitor(driver, vehicle, 0)

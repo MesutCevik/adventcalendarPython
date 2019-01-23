@@ -1,24 +1,18 @@
+from typing import List
+
 from impl import Competitor
 
 
 class CompetitorsList:
-    competitor: Competitor
-    competitors: str = list()
-    competitors_in_string: str = list()
-
-    def __init__(self, competitor, competitors):
-        self.competitor = competitor
-        self.competitors = competitors
+    competitors: List['Competitor'] = []
 
     def add_competitor(self, competitor: Competitor):
-        self.competitors.__add__(competitor)
+        self.competitors.append(competitor)
 
-    def get_competitors(self):
-        return self.competitors
-
-    def __str__(self, competitors_in_string=None) -> str:
-        for self.competitor in self.competitors:
-            self.competitors_in_string.__add__(f"Competitor: {self.competitor}; ")
+    def __str__(self) -> str:
+        competitors_in_string: str = ""
+        for competitor in self.competitors:
+            competitors_in_string += f"Competitor: {competitor}; "
         return competitors_in_string
 
 

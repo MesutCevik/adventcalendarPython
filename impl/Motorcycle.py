@@ -19,6 +19,6 @@ class Motorcycle(Vehicle):
         super().__init__(manufacturer, model_name, horsepower, engine_type)
         self.motorcycle_type = motorcycle_type
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.manufacturer} {self.model_name}, {self.engine_type.name}, {self.horsepower} hsp, " \
             f"{self.motorcycle_type.name}."

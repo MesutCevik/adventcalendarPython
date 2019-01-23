@@ -19,7 +19,7 @@ class Vehicle:
         self.horsepower = horsepower
         self.engine_type = engine_type
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.manufacturer} {self.model_name}, {self.horsepower}hsp, {self.engine_type.name}."
 
 

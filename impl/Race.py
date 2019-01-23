@@ -1,54 +1,43 @@
 from random import shuffle
-from typing import List
+from typing import List, Any
 
 from impl import CompetitorsList, Driver, Vehicle, Competitor
 
 
 class Race:
+    mesutsCompetitorListVariable: CompetitorsList
+    starting_lineup: List['Competitor'] = []
+    race_result: List['Competitor'] = []
 
-    competitors: CompetitorsList
-
-    # CONSTRUCTOR
     def __init__(self, competitors: CompetitorsList):
-        self.competitors = competitors
-        self.starting_lineup: str = list()
-        self.race_result: str = list()
+        self.mesutsCompetitorListVariable = competitors
 
-    def race(self):
+    def race(self) -> None:
         self.race_result = self.starting_lineup
         shuffle(self.race_result)
 
         places = self.race_result
-        for place in places:
-            if place == 1:
+        for place, _ in enumerate(places, start=0):
+            if place == 0:
                 points = (len(self.race_result) - place + 1) * 2
             else:
-                points = (len(self.race_result) - place +1) * 1
+                points = (len(self.race_result) - place + 1) * 1
 
-            self.race_result[place-1].add_points(points)
+            self.race_result[place].add_points(points)
 
         self.starting_lineup = self.race_result
 
-    def generate_starting_lineup(self, competitors):
-        for competitor in self.competitors:  # Nehme jedes Element in einer Liste competitor.
-            self.starting_lineup.__add__(competitor.driver.last_name + competitor.driver.first_name + competitor.vehicle.manufacturer)
+    def generate_starting_lineup(self) -> List['Competitor']:
+        for competitor in self.mesutsCompetitorListVariable.competitors:  # Nehme jedes Element in einer Liste competitor.
+            self.starting_lineup.append(competitor)
 
         return self.starting_lineup
 
-    def get_competitors(self):
-        return self.competitors
-
-    def get_starting_lineup(self):
-        return self.starting_lineup
-
-    def get_result(self):
-        return self.race_result
-
-    def __str__(self):
-        nice_competitors: str = list()
+    def __str__(self) -> str:
+        nice_competitors: str = ""
         for competitor in self.race_result:
-            nice_competitors.__add__(f"Result Position: {[competitor.index(self.race_result)]}, {competitor}")
-            
+            nice_competitors += f"Result Position: {[competitor.index(self.race_result)]}, {competitor}"
+
         return nice_competitors
 
 
