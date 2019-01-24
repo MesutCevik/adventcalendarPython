@@ -36,5 +36,5 @@ class CompetitorsGenerator:
     def get_random_competitor(self) -> Competitor:
         driver: Driver = self._get_random_driver()
         vehicle: Vehicle = self._get_random_vehicle()
-
-        return Competitor(driver, vehicle, 0)
+        unique = self.starting_number
+        return Competitor(driver, vehicle, 0, unique)

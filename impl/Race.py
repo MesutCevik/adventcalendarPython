@@ -8,9 +8,13 @@ class Race:
     mesutsCompetitorListVariable: List['Competitor']
     starting_lineup: List['Competitor'] = []
     race_result: List['Competitor'] = []
+    race_number: int
+    amount_of_races: int
 
-    def __init__(self, competitors: List['Competitor']):
+    def __init__(self, competitors: List['Competitor'], race_number: int, amount_of_races: int):
         self.mesutsCompetitorListVariable = competitors
+        self.race_number = race_number
+        self.amount_of_races = amount_of_races
 
     def race(self) -> None:
         self.race_result = list(self.starting_lineup)
@@ -27,16 +31,14 @@ class Race:
         self.starting_lineup = list(self.race_result)
 
     def generate_starting_lineup(self) -> List['Competitor']:
-        self.starting_lineup = []
-        for competitor in self.mesutsCompetitorListVariable:  # Nehme jedes Element in einer Liste competitor.
-            self.starting_lineup.append(competitor)
-
+        self.starting_lineup = list(self.mesutsCompetitorListVariable)
         return self.starting_lineup
 
     def __str__(self) -> str:
         nice_competitors: str = ""
-        for competitor in self.race_result:
-            nice_competitors += f"Result Position: {[competitor.index(self.race_result)]}, {competitor}"
+        for place in range(0, len(self.race_result)):
+            competitor = self.race_result[place]
+            nice_competitors += f"{place + 1} {competitor.points}, {competitor.driver.first_name} {competitor.driver.last_name}; "
 
         return nice_competitors
 
@@ -57,19 +59,5 @@ class Race:
       * all other placements gives the drivers '[count of drivers - place + 1] * 1' points
   3. Generate the next starting lineup from the drivers last race position.
   4. Add useful unit tests
-  3. Visualize created classes with plantuml as class diagram, inclusive associations.
-"""
-
-
-"""
-### Exercise 14 - Racing game lineup
-
-  Implement the race with it's starting lineup.
-
-  1. Add and implement following methods to class `Race`:
-      * _generateStartingLineup()_ => in the 1st race, the starting lineup is ordered by _drivers last name_, _drivers first name_, _vehicles manufacturer_.
-      * _getStartingLineup()_ => returns the ordered `CompetitorsList`.
-      * _toString()_ => starting lineup as String, like '[Position in StartingLineup] [Competitor]'
-  2. Add useful unit tests
   3. Visualize created classes with plantuml as class diagram, inclusive associations.
 """

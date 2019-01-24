@@ -11,6 +11,11 @@ class Driver:
     def __str__(self) -> str:
         return f"({self.starting_number}) {self.first_name} {self.last_name}"
 
+    def __eq__(self, other) -> bool:
+        return self.starting_number == other.starting_number \
+               and self.first_name == other.first_name \
+               and self.last_name == other.last_name
+
 
 if __name__ == '__main__':
     michail_gorbatschow = Driver("Michail", "Gorbatschow", 0)
