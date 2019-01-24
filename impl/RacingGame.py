@@ -28,8 +28,6 @@ class RacingGame:
         self.current_line_up = self.competitors_list.competitors
         self.seasonstart_line_up = list(self.current_line_up)
 
-        print(f"Race Result: {cg.get_random_competitor()}")
-
     def run_season(self):
         for race_number in range(1, self.amount_of_races + 1):
             print(f"{race_number }/{self.amount_of_races} starting")
@@ -40,11 +38,12 @@ class RacingGame:
         current_race = Race(self.current_line_up, race_number, self.amount_of_races)
         current_race.generate_starting_lineup()
         print(f"Starting: {str(current_race.starting_lineup)}")
+
         current_race.race()
         print(f"Result  : {str(current_race.race_result)}")
 
         differences = self.calculate_differences_between_two_races(race_number, self.current_line_up, current_race.race_result)
-        print(f"Differences  : {differences}")
+        print(f"Diff    : {differences}")
 
         current_standing = self.get_standing_for(current_race)
         print(f"Result  : {current_standing}")
@@ -52,13 +51,6 @@ class RacingGame:
         self.current_line_up = list(current_race.race_result)
 
     def calculate_differences_between_two_races(self, race_number: int, previous_race: List['Competitor'], current_race: List['Competitor']) -> str:
-        """
-        toString() => the standing as String like '[Place] [Placement shift] [Competitor]'
-        for the shift up ↑
-        for shift down ↓
-        for a remained placement →
-        :return:
-        """
         if race_number == 1:
             return "no previous race yet"
 
@@ -85,21 +77,13 @@ class RacingGame:
 
         return result
 
-
-
-
-
-
     def get_standing_for(self, current_race: Race) -> str:  # Methode zum abrufen des aktuellen Stands. Brauche List of lists!!!
         if current_race.race_number == 1:
             return f"Standing at race 0: {r.seasonstart_line_up}"
         elif current_race.race_number == current_race.amount_of_races:
-            return f"Final standing at season end: {r.current_line_up}"  # NEU!!!
+            return f"Final standing at season end: {r.current_line_up}"
         else:
-            return f"Standing at race {current_race.race_number}: {current_race}"  # NEU!!!
-
-
-
+            return f"Standing at race {current_race.race_number}: {current_race}"
 
 
 if __name__ == '__main__':
