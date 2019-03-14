@@ -28,7 +28,7 @@ if __name__ == '__main__':
 
     print(dodge_charger.manufacturer)
     print(dodge_charger.model_name)
-    print(dodge_charger.horsepower)
+    print(f"{dodge_charger.horsepower}hsp")
     print(dodge_charger.engine_type)
     print(dodge_charger.engine_type.name)
 

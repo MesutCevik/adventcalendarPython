@@ -77,9 +77,9 @@ class RacingGame:
 
         return result
 
-    def get_standing_for(self, current_race: Race) -> str:  # Methode zum abrufen des aktuellen Stands. Brauche List of lists!!!
-        if current_race.race_number == 1:
-            return f"Standing at race 0: {r.seasonstart_line_up}"
+    def get_standing_for(self, current_race: Race) -> str:  # Methode zum abrufen des aktuellen Stands.
+        if current_race.race_number == 0:
+            return f"Standing at race 1: {r.seasonstart_line_up}"
         elif current_race.race_number == current_race.amount_of_races:
             return f"Final standing at season end: {r.current_line_up}"
         else:

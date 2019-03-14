@@ -28,7 +28,7 @@ if __name__ == '__main__':
 
     print(f"1: {michail_gorbatschow.name}")
 
-    michail_gorbatschow.first_name = "peter"
+    michail_gorbatschow.first_name = "Peter"
 
     print(f"2: {michail_gorbatschow.name}")
 
@@ -37,7 +37,8 @@ if __name__ == '__main__':
 
     # print(michail_gorbatschow)
 
-    print(F"{michail_gorbatschow.first_name} {michail_gorbatschow.last_name}")
+    print(f"Jetzt gebe ich den Namen dieses Driver-Objekts ist: {michail_gorbatschow.first_name} {michail_gorbatschow.last_name}")
+
 
 """
 
